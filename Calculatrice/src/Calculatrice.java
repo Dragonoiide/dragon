@@ -25,6 +25,7 @@ public class Calculatrice extends JFrame implements ActionListener
   JButton Multiplication = new JButton("Multiplication");
   JButton Division = new JButton("Division");
   JButton Quitter = new JButton("Quitter");
+  JButton Carrer = new JButton("Au carré ²");
  
 
   public Calculatrice() // constructeur de la calculette
@@ -66,6 +67,8 @@ public class Calculatrice extends JFrame implements ActionListener
     Division.addActionListener(this);
     sud.add(Quitter);
     Quitter.addActionListener(this);
+    sud.add(Carrer);
+    Carrer.addActionListener(this);
     sud.setBackground(Color.BLUE);
     pane.add(sud,BorderLayout.SOUTH);
 
@@ -97,6 +100,12 @@ public class Calculatrice extends JFrame implements ActionListener
     {
 	  dispose( );
 	  System.exit(0);
+    }
+    else if ( evenement.getSource() == Carrer)
+    {
+        double tmp = Double.parseDouble(Op1.getText().replace(",","."));
+        tmp *= tmp;
+        Resultat.setText(String.valueOf(tmp));
     }
   }
 
